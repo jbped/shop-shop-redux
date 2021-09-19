@@ -4,15 +4,20 @@ import { QUERY_CATEGORIES } from '../../utils/queries';
 import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../../utils/actions'
 
 import { idbPromise } from '../../utils/helpers';
-import { useStoreContext } from '../../utils/GlobalState'
+// import { useStoreContext } from '../../utils/GlobalState'
+import { /*useStore, */useDispatch, useSelector } from 'react-redux'
+
 
 function CategoryMenu() {
   // const { data: categoryData } = useQuery(QUERY_CATEGORIES);
   // const categories = categoryData?.categories || [];
 
-  const [state, dispatch] = useStoreContext();
+  // const [state, dispatch] = useStoreContext();
 
-  const { categories } = state;
+  const dispatch = useDispatch();
+  const categories = useSelector(state => state.categories)
+
+  // const { categories } = state;
 
   const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
 
