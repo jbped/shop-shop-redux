@@ -7,7 +7,6 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-// import { StoreProvider } from './utils/GlobalState';
 import { Provider } from 'react-redux';
 import { store } from './utils/GlobalState'
 
@@ -44,7 +43,6 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          {/* <StoreProvider> */}
           <Provider store={store}>
             <Nav />
             <Switch>
@@ -57,7 +55,6 @@ function App() {
               <Route component={NoMatch} />
             </Switch>
           </Provider>
-          {/* </StoreProvider> */}
         </div>
       </Router>
     </ApolloProvider>

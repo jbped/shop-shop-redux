@@ -18,20 +18,18 @@ import spinner from '../assets/spinner.gif';
 import Cart from '../components/Cart';
 
 function Detail() {
-  // const [state, dispatch] = useStoreContext();
-
-  // const store = useStore()
+  // Declare 
   const dispatch = useDispatch()
 
   const { id } = useParams();
   const [currentProduct, setCurrentProduct] = useState({})
   const { loading, data } = useQuery(QUERY_PRODUCTS);
   
-  // const { products, cart } = state;
-  // const { products, cart } = store.getState();
+  // Retrieve products and cart from global state
   const products = useSelector(state => state.products);
   const cart  = useSelector(state => state.cart);
 
+  // Add item to cart function
   const addToCart = () => {
     const itemInCart = cart.find(cartItem => cartItem._id === id)
 
@@ -57,6 +55,7 @@ function Detail() {
     } 
   };
 
+  // remove item from cart
   const removeFromCart = () => {
     dispatch({
       type: REMOVE_FROM_CART,
@@ -87,6 +86,7 @@ function Detail() {
       })
     }
   }, [products, data, loading, dispatch, id]);
+
   return (
     <>
       {currentProduct ? (

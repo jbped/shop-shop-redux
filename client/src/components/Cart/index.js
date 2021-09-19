@@ -5,8 +5,7 @@ import { QUERY_CHECKOUT } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 import CartItem from '../CartItem';
 import Auth from '../../utils/auth';
-// import { useStoreContext } from '../../utils/GlobalState';
-import { /*useStore, */useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import './style.css';
@@ -14,10 +13,10 @@ import './style.css';
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
-  // const [state, dispatch] = useStoreContext();
+  // Create Dispatch and State Redux variables using React Redux Components
   const dispatch = useDispatch();
   const state = useSelector(state => state);
-  
+
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
   useEffect(() => {
@@ -39,10 +38,12 @@ const Cart = () => {
     }
   }, [state.cart.length, dispatch]);
 
+  // Open/close cart popup
   function toggleCart() {
     dispatch({ type: TOGGLE_CART });
   }
 
+  // Calculate Total for Cart
   function calculateTotal() {
     let sum = 0;
     state.cart.forEach((item) => {
@@ -51,6 +52,7 @@ const Cart = () => {
     return sum.toFixed(2);
   }
 
+  // Submit items from cart to Stripe
   function submitCheckout() {
     const productIds = [];
 
