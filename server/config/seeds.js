@@ -69,7 +69,7 @@ db.once('open', async () => {
         'Vestibulum risus metus, luctus non tortor quis, tincidunt consectetur ex. Nullam vitae lobortis ligula, ut sagittis massa. Curabitur consectetur, tellus at pulvinar venenatis, erat augue cursus erat, eu ullamcorper eros lectus ultrices ipsum. Integer rutrum, augue vitae auctor venenatis, turpis turpis elementum orci, at sagittis risus mi a leo.',
       image: 'camera.jpg',
       price: 399.99,
-      quantity: 30
+      quantity: 35
     },
     {
       name: 'Tablet',
