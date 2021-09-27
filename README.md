@@ -19,7 +19,7 @@ These instructions are for hosting the webapp on your local device.
 1. Clone repository 
 2. Open a new command line that is in the correct directory 
 3. Run `npm i `
-4. The application can now be intiated with `npm start`.
+4. The application can now be intiated with `npm run develop`.
 
 ## Usage
 Once the application has been installed, or accessed using the [Shop Shop Redux](https://shopp-shopp.herokuapp.com/) you can view the e-commerce website, navigate through the tabs, add items to the cart, and "checkout" with Stripe.
